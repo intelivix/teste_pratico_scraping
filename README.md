@@ -1,4 +1,3 @@
-![Intelivix logo](intelivix.png*)
 
 # Chamada para Desenvolvedores - Time de Scraping #
 
