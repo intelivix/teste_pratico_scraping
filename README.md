@@ -39,9 +39,9 @@ Campos:
 Demonstrar boa utilização do framework entre outras habilidades explorando os pontos abaixo:
 
 * Utilização de `xpath` nas buscas por links (obrigatório)
-* Persistência das informações (Preferencialmente PostgreSQL, MongoDB ou RethinkDB) (obrigatório)
+* Persistência das informações (Preferencialmente PostgreSQL ou MongoDB) (obrigatório)
 * Tratamento de paginação
 * Manipulação de querystrings
 * Utilizar logs para sinalizar ocorrências durante o scraping
 
-Quaisquer dúvidas podem ser enviadas para luiz@intelivix.com. O candidato deve registrar o tempo despendido para o desenvolvimento. Não existe um escopo de tempo oficial, mas o ideal é que não ultrapasse 1 semana.
+Quaisquer dúvidas podem ser enviadas para arthur@intelivix.com. O candidato deve registrar o tempo despendido para o desenvolvimento. Não existe um escopo de tempo oficial, mas o ideal é que não ultrapasse 1 semana.
