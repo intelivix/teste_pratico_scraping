@@ -7,12 +7,11 @@ Teste prático para os desenvolvedores candidatos as vagas do time de scraping.
 
 Construir um crawler para alguma loja online utilizando o framework Scrapy.
 
-O código deverá ser disponibilizado no Github assim como as instruções para replicar a execução do mesmo.
+O código deverá ser disponibilizado no Github assim como as instruções para executar e acessar os dados obtidos.
 
 ### Spider de Produto ###
 
-A spider deve extrair informações de cada produto na página do Marketplace escolhido.
-Ela deve navegar em cada categoria de produto disponível (Ex: Games / Playstation / Jogos para PS4) até o menor nível possível para extrair cada produto.
+A spider deverá realizar uma busca (Ex: "celular", "geladeira", "camisa", etc.) e extrair informações de cada produto resultante.
 
 Alguns desses campos podem não estar presentes na página de produto.
 
@@ -29,7 +28,7 @@ Campos:
 * valor_antigo: (*float*) Valor do produto sem desconto, se houver
 * imagem_principal: (*string*) URL da imagem do produto
 * imagens_secundarias: (*string list*) Lista de URL das imagens secundárias
-* caracteristicas: (*list dict*) Lista de dicionários contendo as caracteristicas do produto
+* caracteristicas: (*dict list*) Lista de dicionários contendo as caracteristicas do produto
 		Ex.: [{'name': 'Cor', 'value': 'Preto'}]
 * dimensoes: (*dict*) Dicionário com as dimensões do produto
 		Ex.: {'altura': '2,00 cm', 'largura': '40,00 cm', 'peso': '2,59 kg'}
@@ -38,10 +37,16 @@ Campos:
 
 Demonstrar boa utilização do framework entre outras habilidades explorando os pontos abaixo:
 
-* Utilização de `xpath` nas buscas por links (obrigatório)
-* Persistência das informações (Preferencialmente PostgreSQL ou MongoDB) (obrigatório)
+#### Requisitos mínimos:
+* Utilização de `form request` na busca por produtos
+* Utilização de `xpath` e/ou `css` selectors nas buscas por links e na raspagem de dados
 * Tratamento de paginação
+
+#### Requisitos opcionais:
 * Manipulação de querystrings
 * Utilizar logs para sinalizar ocorrências durante o scraping
+* Persistência das informações em banco de dados (Preferencialmente PostgreSQL ou MongoDB)
+* Utilização de loader para carregar informações
+* Chamadas assíncronas para capturar informações não presentes no HTML (AJAX, etc.)
 
 Quaisquer dúvidas podem ser enviadas para arthur@intelivix.com. O candidato deve registrar o tempo despendido para o desenvolvimento. Não existe um escopo de tempo oficial, mas o ideal é que não ultrapasse 1 semana.
