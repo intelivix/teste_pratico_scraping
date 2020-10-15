@@ -2,8 +2,6 @@
 
 ## Descrição do problema
 
----
-
 O Banco do Brasil está interessado em seus serviços para avaliar como estão seus processos em um sistema do Tribunal Federal da 5a Região (TRF5).
 
 O sistema em questão permite consulta pública de processos no endereço [http://www5.trf5.jus.br/cp/](http://www5.trf5.jus.br/cp/) .
@@ -13,8 +11,6 @@ Alguns processos são de bastante interesse do BB, e já foram passados para voc
 Para realizar esta tarefa, será necessária a implementação de um raspador.
 
 ## Especificação dos dados
-
----
 
 Na página do processo, algumas informações devem ser obtidas, de acordo com a imagem a seguir:
 
@@ -35,8 +31,6 @@ De cima para baixo:
 
 ## Requisitos
 
----
-
 - O raspador deverá permitir realizar a busca por "N° do processo" para buscar os números de processos conhecidos;
 - O raspador deverá permitir realizar a busca por "CNPJ" para descoberta de processos;
 - Mostre uma maneira de persistir os dados (um arquivo JSON Lines ou banco de dados, por exemplo);
@@ -45,8 +39,6 @@ De cima para baixo:
 - O projeto do raspador deve estar num repositório Git público (Github, Bitbucket, Gitlab, etc.).
 
 ## Critérios de avaliação
-
----
 
 Os critérios de avaliação, em ordem de relevância:
 
@@ -61,8 +53,6 @@ Algumas observações:
 - Se persistir os dados em um arquivo, não suba o arquivo pro repositório público, o projeto será executado durante a avaliação.
 
 ## Argumentos
-
----
 
 Lista de processos enviados pelo BB:
 
