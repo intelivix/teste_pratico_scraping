@@ -1,52 +1,78 @@
+# Desafio Técnico - Scraping
 
-# Chamada para Desenvolvedores - Time de Scraping #
+## Descrição do problema
 
-Teste prático para os desenvolvedores candidatos as vagas do time de scraping.
+---
 
-### Objetivo ###
+O Banco do Brasil está interessado em seus serviços para avaliar como estão seus processos em um sistema do Tribunal Federal da 5a Região (TRF5).
 
-Construir um crawler para alguma loja online utilizando o framework Scrapy.
+O sistema em questão permite consulta pública de processos no endereço [http://www5.trf5.jus.br/cp/](http://www5.trf5.jus.br/cp/) .
 
-O código deverá ser disponibilizado no Github assim como as instruções para executar e acessar os dados obtidos.
+Alguns processos são de bastante interesse do BB, e já foram passados para você. Mas o BB também gostaria de descobrir se existe algum processo no sistema que eles desconhecem.
 
-### Spider de Produto ###
+Para realizar esta tarefa, será necessária a implementação de um raspador.
 
-A spider deverá realizar uma busca (Ex: "celular", "geladeira", "camisa", etc.) e extrair informações de cada produto resultante.
+## Especificação dos dados
 
-Alguns desses campos podem não estar presentes na página de produto.
+---
 
-Campos:
+Na página do processo, algumas informações devem ser obtidas, de acordo com a imagem a seguir:
 
-* url: (*string*) Url do produto sendo extraído
-* nome: (*string*) Nome do produto
-* descricao: (*string*) Texto contendo a descrição do produto
-* categoria: (*string*) Categoria em que o produto se enquadra
-* marca: (*string*) Marca do produto
-* navegacao: (*string list*) Lista de categorias e subcategorias de navegação, indo do mais geral para mais específico
-* nome_vendedor: (*string*) Nome do vendedor do produto
-* valor: (*float*) Valor atual do produto
-* valor_antigo: (*float*) Valor do produto sem desconto, se houver
-* imagem_principal: (*string*) URL da imagem do produto
-* imagens_secundarias: (*string list*) Lista de URL das imagens secundárias
-* caracteristicas: (*dict list*) Lista de dicionários contendo as caracteristicas do produto
-		Ex.: [{'name': 'Cor', 'value': 'Preto'}]
-* dimensoes: (*dict*) Dicionário com as dimensões do produto
-		Ex.: {'altura': '2,00 cm', 'largura': '40,00 cm', 'peso': '2,59 kg'}
+![https://i.imgur.com/a9tj20t.png](https://i.imgur.com/a9tj20t.png)
 
-### Avaliação ###
+De cima para baixo:
 
-Demonstrar boa utilização do framework entre outras habilidades explorando os pontos abaixo:
+- Em vermelho, o `numero_processo` [*string*] (caso não haja conteúdo, este campo deve ser preenchido com o `numero_legado`) ;
+- Em verde, o `numero_legado` [*string*];
+- Em azul, a `data_autuacao` [*datetime.datetime*];
+- Em ciano, os `envolvidos` [*list of dict*]:
+    - À esquerda, o `papel` [*string*] do envolvido;
+    - À direita, o `nome` [*string*] do envolvido;
+- Em rosa, o `relator` [*string*] (apenas o nome é necessário)
+- Em cinza, as `movimentacoes` [*list of dict*]:
+    - Em cima, a `data` [datetime.datetime] da movimentação;
+    - Embaixo, o `texto` [*string*] da movimentação.
 
-#### Requisitos mínimos:
-* Utilização de `form request` na busca por produtos
-* Utilização de `xpath` e/ou `css` selectors nas buscas por links e na raspagem de dados
-* Tratamento de paginação
+## Requisitos
 
-#### Requisitos opcionais:
-* Manipulação de querystrings
-* Utilizar logs para sinalizar ocorrências durante o scraping
-* Persistência das informações em banco de dados (Preferencialmente PostgreSQL ou MongoDB)
-* Utilização de loader para carregar informações
-* Chamadas assíncronas para capturar informações não presentes no HTML (AJAX, etc.)
+---
 
-Quaisquer dúvidas podem ser enviadas para arthur@intelivix.com. O candidato deve registrar o tempo despendido para o desenvolvimento. Não existe um escopo de tempo oficial, mas o ideal é que não ultrapasse 1 semana.
+- O raspador deverá permitir realizar a busca por "N° do processo" para buscar os números de processos conhecidos;
+- O raspador deverá permitir realizar a busca por "CNPJ" para descoberta de processos;
+- Mostre uma maneira de persistir os dados (um arquivo JSON Lines ou banco de dados, por exemplo);
+- Documentação (como executar o projeto, decisões de implementação, dificuldades encontradas e como foram resolvidas, etc.);
+- O raspador deve ser implementado utilizando o framework Scrapy com Python 3;
+- O projeto do raspador deve estar num repositório Git público (Github, Bitbucket, Gitlab, etc.).
+
+## Critérios de avaliação
+
+---
+
+Os critérios de avaliação, em ordem de relevância:
+
+1. Código legível, simples e claro;
+2. Documentação;
+3. Qualidade dos dados;
+4. Arquitetura (forma de persistência dos arquivos, eficiência do raspador, bom uso do framework Scrapy, etc).
+
+Algumas observações:
+
+- Excesso de comentários no código não implica em boa documentação e prejudica a legibilidade do código. Mantenha apenas comentários absolutamente necessários;
+- Se persistir os dados em um arquivo, não suba o arquivo pro repositório público, o projeto será executado durante a avaliação.
+
+## Argumentos
+
+---
+
+Lista de processos enviados pelo BB:
+
+- 0015648-78.1999.4.05.0000
+- 0012656-90.2012.4.05.0000
+- 0043753-74.2013.4.05.0000
+- 0002098-07.2011.4.05.8500
+- 0460674-33.2019.4.05.0000
+- 0000560-67.2017.4.05.0000
+
+CNPJ do BB:
+
+- 00.000.000/0001-91
