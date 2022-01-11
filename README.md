@@ -35,7 +35,7 @@ De cima para baixo:
 - O raspador deverá permitir realizar a busca por "CNPJ" para descoberta de processos;
 - Mostre uma maneira de persistir os dados (um arquivo JSON Lines ou banco de dados, por exemplo);
 - Documentação (como executar o projeto, decisões de implementação, dificuldades encontradas e como foram resolvidas, etc.);
-- O raspador deve ser implementado utilizando o framework Scrapy com Python 3;
+- O raspador deve ser implementado utilizando exclusivamente o framework Scrapy com Python 3;
 - O projeto do raspador deve estar num repositório Git público (Github, Bitbucket, Gitlab, etc.).
 
 ## Critérios de avaliação
@@ -50,7 +50,8 @@ Os critérios de avaliação, em ordem de relevância:
 Algumas observações:
 
 - Excesso de comentários no código não implica em boa documentação e prejudica a legibilidade do código. Mantenha apenas comentários absolutamente necessários;
-- Se persistir os dados em um arquivo, não suba o arquivo pro repositório público, o projeto será executado durante a avaliação.
+- Se persistir os dados em um arquivo, não suba o arquivo pro repositório público, o projeto será executado durante a avaliação;
+- Persistir os dados utilizando o mongoDB implicará em um bônus na avaliação.
 
 ## Argumentos
 
